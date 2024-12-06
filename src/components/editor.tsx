@@ -26,7 +26,7 @@ interface EditorProps {
     variant?: "create" | "update";
 }
 
-const Editor = ({onSubmit, onCancel, placeholder="Write something...", defaultValue=[], disabled=false, innerRef, variant="create"}: EditorProps) => {
+const Editor = ({onSubmit, onCancel, placeholder, defaultValue=[], disabled=false, innerRef, variant="create"}: EditorProps) => {
 
     const submitRef = useRef(onSubmit);
     const placeholderRef = useRef(placeholder);
