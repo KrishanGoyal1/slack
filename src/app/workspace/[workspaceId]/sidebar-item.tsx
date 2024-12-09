@@ -34,10 +34,17 @@ export const SidebarItem = ({label, icon: Icon, id, variant}: SidebarItemProps) 
 
     return (
         <Button asChild variant="transparent" size="sm" className={cn(sidebarItemVariants({variant}))}>
-            <Link href={`/workspace/${workspaceId}/channel/${id}`}>
-                <Icon className="size-3.5 mr-1 shrink-0"/>
-                <span className="text-sm truncate">{label}</span>
-            </Link>
+            {id === "threads" || id==="drafts" ? (
+                <div className=" cursor-pointer">
+                    <Icon className="size-3.5 mr-1 shrink-0"/>
+                    <span className="text-sm truncate">{label}</span>
+                </div>
+            ): (
+                <Link href={`/workspace/${workspaceId}/channel/${id}`}>
+                    <Icon className="size-3.5 mr-1 shrink-0"/>
+                    <span className="text-sm truncate">{label}</span>
+                </Link>
+            )}
         </Button>
     )
 } 
